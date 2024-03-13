@@ -1,0 +1,36 @@
+version: '3'
+services:
+  api_gateway:
+    build: ./api_gateway
+    ports:
+      - "8080:8080"
+  
+  plan_deportivo:
+    build: ./plan_deportivo
+    ports:
+      - "5000:5000"
+
+  deportistas:
+    build: ./deportistas
+    ports:
+      - "5002:5002"
+
+  membresia:
+    build: ./membresia
+    ports:
+      - "5004:5004"
+  
+  servicios:
+    build: ./servicios
+    ports:
+      - "5003:5003"
+
+  monitor_service:
+    build: ./monitor_service
+    volumes:
+      - ./monitor_service:/app
+  
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
