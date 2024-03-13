@@ -18,8 +18,8 @@ def health_check():
         status = 'up'
 
     message = json.dumps({'service': 'deportistas', 'status': status})
-    redis_client.publish('health_checks', message)
-    return "Health status updated"
+    #redis_client.publish('health_checks', message)
+    return "Health deportistas status updated"
 
 
 @app.route('/crear_deportistas', methods=['post'])
@@ -100,7 +100,7 @@ def listen_for_deportista_servicios():
 
 
 if __name__ == '__main__':
-    listen_for_deportista_membresia()
-    listen_for_deportista_plan_deportivo()
-    listen_for_deportista_servicios()
+    #listen_for_deportista_membresia()
+    #listen_for_deportista_plan_deportivo()
+    #listen_for_deportista_servicios()
     app.run(debug=True, host='0.0.0.0', port=5002)
